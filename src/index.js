@@ -1,15 +1,24 @@
-import mongoose from "mongoose";
-import { DB_NAME } from "./constants";
+import Dotenv  from "dotenv";
+
+import connectDB from "./db/index.js";
+
+Dotenv.config({
+path : "./env"
+})
+
+
+
+connectDB()
 
 
 
 
-(async()=>{
-    try {
-       await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
+// (async()=>{
+//     try {
+//        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
         
-    } catch (error) {
-        console.error("ERROR:" , error)
-        throw err
-    }
-})()
+//     } catch (error) {
+//         console.error("ERROR:" , error)
+//         throw err
+//     }
+// })()
